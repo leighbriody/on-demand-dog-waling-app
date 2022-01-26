@@ -1,0 +1,40 @@
+ion-header {
+	&::after {
+		display: none;
+	}
+}
+
+ion-content {
+	.flex-view {
+		height: 100%;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.submit-button {
+		margin-top: 32px;
+	}
+	.social-auth {
+		padding: 16px;
+		ion-icon {
+			font-size: 36px;
+			padding: 18px;
+			transition: 0.07s ease-in;
+			&:active {
+				transform: scale(0.85);
+				transition: 0.05s ease-out;
+			}
+			&[name="logo-facebook"] {
+				color: #3b5998;
+			}
+			&[name="logo-google"] {
+				color: #db4437;
+			}
+			&[name="logo-twitter"] {
+				color: #1da1f2;
+			}
+		}
+	}
+}

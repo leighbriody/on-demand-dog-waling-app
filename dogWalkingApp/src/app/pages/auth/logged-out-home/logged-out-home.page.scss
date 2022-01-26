@@ -1,0 +1,65 @@
+
+.content {
+    position: fixed;
+    bottom: 20px;
+}
+
+.background-image{
+    --background: url(../../../../assets/img/logged-out-home/dog-home.jpg) 0 0/100% 100% ;
+}
+
+img {
+    max-width: 70%;
+    max-height: 70%;
+    padding-left: 5%;
+}
+
+
+ion-grid {padding-left: 5%;
+}
+
+.option-div {
+    width: 120px;
+  height: 120px;
+  
+  background-color: white;
+  padding-left: 5%;
+  border-radius:  10px;
+
+  
+  Box-shadow:0 10px 20px rgba(0,0,0,0.19), 0 7px px rgba(0,0,0,0.23);
+
+
+}
+
+.option-div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ 
+ 
+    
+
+}
+
+.login {
+    padding-left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.option-div {
+    padding-top: 11%;
+padding-right: 8%;
+}
+
+label {
+    color:#43984B;
+    font-size: 14px;    
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding-left: 1%;
+}

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar  > 
+    <ion-buttons slot="start">
+      
+      <ion-back-button defaultHref="/"></ion-back-button>
+      
+    </ion-buttons>
+    <ion-title style="width: 100%; position: absolute; left: 0; color: var(--ion-color-primary);">
+      Walkies
+  </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+
+
+  <!--SHow them a small welcome-->
+  <div class="card-background"></div>
+  <div class="flex-view">
+    <div>
+    
+      <h1 class="ion-text-center">Dog Owner Login</h1> 
+    
+      <p class="ion-text-center">Login as a dog owner to find the walk your pet deserves.</p>
+  </div>
+
+
+    <!-- INPUT CARD START -->
+    <div class="input-card">
+      <!-- EMAIL INPUT -->
+      <ion-item class="floating-input">
+        <ion-label position="floating">E-mail</ion-label>
+        <!--NgModel our user inputs so they are variables on the other pages -->
+        <ion-input  [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <!-- PASSWORD INPUT -->
+      <ion-item class="floating-input">
+        <ion-label position="floating">Password</ion-label>
+       <!-- <ion-input    [(ngModel)]="password">-->
+        <ion-input [(ngModel)]="password" #passwordInput class="ion-padding-right" clearOnEdit="false" [type]="showPassword ? 'text' : 'password'">
+        </ion-input>
+        <!-- SHOW PASSWORD BUTTON -->
+        <ion-button slot="end"  shape="round" color="dark" fill="clear">
+          <ion-icon slot="icon-only" ></ion-icon>
+        </ion-button>
+        
+      </ion-item>
+      <!-- SUBMIT BUTTON -->
+      <ion-button  (click)="SignIn()" class="custom-button" expand="block">
+        Sign in
+      </ion-button>
+    </div>
+    <!-- INPUT CARD END -->
+    <div>
+     
+      <div class="ion-text-center social-auth">
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-google"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </div>
+
+
+      <div class="ion-text-center">
+        <ion-button fill="clear" routerLink="/register" routerDirection="forward">
+          Dont already have an account ? Sign Up
+        </ion-button>
+       
+      </div>
+    </div>
+  </div>
+</ion-content>

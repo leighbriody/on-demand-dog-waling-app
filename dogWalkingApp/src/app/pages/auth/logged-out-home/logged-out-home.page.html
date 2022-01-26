@@ -1,0 +1,30 @@
+<ion-content class="background-image" no-scroll padding>
+
+
+  <div class="content">
+    <img src="../../../assets/img/logged-out-home/on-demand-slogan.png" id="walkies-logo">
+
+    <!--Grid with buttons-->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="option-div" [routerLink]="['/','sign-up-walker']">
+            <img src="../../../assets/img/logged-out-home/walkerdownload.png">
+            <label>Become walker</label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="option-div" [routerLink]="['/','sign-up-owner']">
+            
+            <img src="../../../assets/img/logged-out-home/owner.png">
+            <label>Become owner</label>
+        
+          </div>
+        </ion-col>
+       
+      </ion-row>
+    </ion-grid>
+    <p class="login" [routerLink]="['/','choose-sign-in']">Already have an account? Login</p>
+  </div>
+
+</ion-content>
