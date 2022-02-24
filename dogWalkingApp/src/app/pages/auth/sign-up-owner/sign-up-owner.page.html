@@ -1,13 +1,9 @@
 <ion-header>
-  <ion-toolbar  > 
+  <ion-toolbar  color="primary"> 
     <ion-buttons slot="start">
-      
       <ion-back-button defaultHref="/"></ion-back-button>
-      
     </ion-buttons>
-    <ion-title style="width: 100%; position: absolute; left: 0; color: var(--ion-color-primary);">
-      Walkies
-  </ion-title>
+    <ion-title>Walkies</ion-title>
   </ion-toolbar>
 
 </ion-header>
@@ -41,7 +37,7 @@
         <ion-label position="floating">Password</ion-label>
         <ion-input clearOnEdit="false" type="password"></ion-input>
       </ion-item>
-      <ion-button  class="custom-button" expand="block" (click)="SignUp()">
+      <ion-button  class="custom-button" expand="block" (click)="signUp()">
         Sign up
       </ion-button>
     </div>

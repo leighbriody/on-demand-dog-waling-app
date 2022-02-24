@@ -1,0 +1,22 @@
+ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+   }
+
+.view-btn {
+    color: var(  --ion-color-primary);
+}
+
+.edit-btn {
+    color: var(  --ion-color-secondary);
+}
+
+.remove-btn {
+    color: var(  --ion-color-danger);
+}
+
+ion-fab {
+    margin-bottom: 14%;
+}

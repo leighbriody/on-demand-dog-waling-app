@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar  color="primary"> 
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Walkies</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--Content begins-->
+<ion-content>
+
+<!--Select pets-->
+<ion-item><h3>Select pet(s) that need walking.</h3></ion-item>
+<ion-card *ngFor="let pet of ownersPets">
+  <ion-row>
+    <ion-col>
+      <img src="../../../../assets/img/owner-pets/muller.jpg">
+    </ion-col>
+    <ion-col>
+      {{pet.name}}
+    </ion-col>
+    <ion-col>
+      <ion-checkbox is-checked="pet.isChecked" checked="false" [(ngModel)]="pet.isChecked" ng-change="callMe()"></ion-checkbox>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+
+<ion-list style="text-align:center">
+  <ion-button expand="block" fill="clear" color="transparent">Add new pet +</ion-button>
+</ion-list>
+
+<!--Duration and cost-->
+<ion-row>
+  <ion-col>
+    <label>Duration of walk :</label>
+  </ion-col>
+  <ion-col>
+    <label>Cost</label>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-select value="30" [(ngModel)]="selectedValue" okText="Okay" cancelText="Dismiss" (ngModelChange)='timeChanged($event)' >
+      <ion-select-option value="30">30 minutes</ion-select-option>
+      <ion-select-option value="60">1 hour 0 minutes</ion-select-option>
+      <ion-select-option value="90">1 hour 30 minutes</ion-select-option>
+      <ion-select-option value="120">2 hours 0 mins</ion-select-option>
+      <ion-select-option value="150">2 hours 30 mins</ion-select-option>
+      <ion-select-option value="180">3 hour 0 minutes</ion-select-option>
+    </ion-select>
+  </ion-col>
+  <ion-col>
+    <label>€ {{walkPrice }}</label>
+  </ion-col>
+</ion-row>
+
+<!-- Textarea in an item with a floating label -->
+<ion-card>
+  <ion-item>
+    <ion-textarea rows="6" cols="20" [(ngModel)]="note" placeholder="Enter note for walker here"></ion-textarea>
+  </ion-item>
+</ion-card>
+
+<!--Search for walker-->
+
+<ion-list style="text-align:center">
+  
+  <ion-button expand="fill"  (click)="makeRequestForWalkers()"  >Search for walkers</ion-button>
+</ion-list>
+
+
+
+
+
+
+
+
+
+
+</ion-content>
+
+
+<!--TABSS-->
+<!--DOG OWNER TABS-->
+<ion-toolbar>
+<ion-tabs>  
+  <ion-fab vertical="bottom" horizontal="center" translucent="true">
+    <ion-fab-button [routerLink]="['/','choose-walk-details']">
+      <img src="../../../../assets/img/owner-home/lead.png">
+    </ion-fab-button>
+  </ion-fab> 
+  <ion-tab-bar slot="bottom" class="ion-no-border">
+    <ion-tab-button tab="tab-encounters" class="home">
+      <ion-icon name="home" ></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="tab-conversations" class="comments" [routerLink]="['/','owner-pets']">
+      <ion-icon name="paw"></ion-icon>
+      <ion-badge></ion-badge>
+    </ion-tab-button>
+    <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg"><path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path></svg>
+    <ion-tab-button tab="tab-notifications" class="notifs">
+      <ion-icon name="notifications"></ion-icon>
+      <ion-badge>1</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab-profile">
+      <ion-icon name="person"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-toolbar>

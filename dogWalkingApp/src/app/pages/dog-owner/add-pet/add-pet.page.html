@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-pet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--HERE WE HAVE THE ADD PET FORM-->
+
+  <!--profile picture needs to be here-->
+  <ion-item>
+    <ion-label position="floating">Pet Name</ion-label>
+    <ion-input [(ngModel)]="name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Breed</ion-label>
+    <ion-input [(ngModel)]="breed"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Age</ion-label>
+    <ion-input type="number" [(ngModel)]="age"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input [(ngModel)]="description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Gender</ion-label>
+    <ion-input [(ngModel)]="gender"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Height</ion-label>
+    <ion-input [(ngModel)]="height"></ion-input>
+  </ion-item>
+
+  <ion-list style="text-align:center">
+    <ion-button expand="block" fill="clear" color="transparent" (click)="addNewPet()">Add New Pet</ion-button>
+  </ion-list>
+</ion-content>

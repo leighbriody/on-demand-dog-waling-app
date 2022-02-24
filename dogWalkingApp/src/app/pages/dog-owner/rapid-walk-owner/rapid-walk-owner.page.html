@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Walkies</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <!--Here we will display the map-->
+  <google-map #mapel height="60%" width="100%" [zoom]="zoom" [center]="center">
+    <!--Owner marker-->
+    <map-marker *ngFor="let marker of markersOwner" [position]="marker.position" [label]="marker.label"
+      [title]="marker.title" [options]="marker.options">
+    </map-marker>
+
+    <!--walker marker-->
+    <map-marker *ngFor="let marker of markersWalker" [position]="marker.position" [label]="marker.label"
+      [title]="marker.title" [options]="marker.options">
+    </map-marker>
+
+    <!--Live Walker markers -->
+    <map-marker *ngFor="let marker of liveWalkMarkers" [position]="marker.position" [label]="marker.label"
+      [title]="marker.title" [options]="marker.options">
+    </map-marker>
+    <map-polyline [options]="polylineOptions">
+    </map-polyline>
+  </google-map>
+
+  <!--If walk not in progress show this-->
+  <ion-card>
+  <ion-item>Walker name is on his way and will be with you shortly</ion-item>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img src="../../../../assets/img/find-walks/user1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h5> x km away</h5>
+        <h2>{{walkerName}}</h2>
+        <h3>{{walkerEmail}}</h3>
+        <p>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+        </p>
+        <ion-row>
+          <ion-col>
+            {{numDogs}} dogs <ion-icon name="paw"></ion-icon>
+          </ion-col>
+          <ion-col>
+            € {{price}}
+          </ion-col>
+          <ion-col>
+            {{expectedDuration}} Minutes
+          </ion-col>
+        </ion-row>
+
+        <ion-button>
+          View Walker Location
+        </ion-button>
+
+
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  </ion-card>
+  <ion-item>Once they have arrived ..</ion-item>
+  
+  
+
+
+
+  <!--Stats on the walk - (ONLY SHOW IF WALK IN PROGRESSS)-->
+  <ion-card *ngIf="walkInProgress">
+    <ion-row>
+      <ion-col>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-button slot="end">Live</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-button fill="outline" slot="end">0hr 0min 0s</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-button fill="outline" slot="end">0 km</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="end-walk-btn" (click)="endWalk()">END WALK</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <!--Chatbox-->
+  <ion-button (click)="deleteTest()">delete test</ion-button>
+
+</ion-content>

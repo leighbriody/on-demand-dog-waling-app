@@ -1,0 +1,70 @@
+<!--Header-->
+<ion-header>
+  <ion-toolbar  color="primary"> 
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Walkies</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--Here we will display the map-->
+  <google-map #mapel height="50%" width="100%" [zoom]="zoom" [center]="center">
+    <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+      [title]="marker.title" [options]="marker.options">
+    </map-marker>
+    <map-polyline>
+    </map-polyline>
+  </google-map>
+
+  <!--Currently offline click button to start searching-->
+  <ion-item>
+    Searching for walkers
+  </ion-item>
+
+  <!--This section will be all walkers -->
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let walker of walkersWhoAcceptedRequest">
+      <ion-card>
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="../../../../assets/img/find-walks/user1.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h3>{{walker.walkersFirstName}}</h3>
+            <h4>{{walker.walkerEmail}}</h4>
+            <p>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+            </p>
+            <ion-row>
+              <ion-col>
+                {{walker.numberPets}} dogs <ion-icon name="paw"></ion-icon>
+              </ion-col>
+              <ion-col>
+                € {{walker.price}}
+              </ion-col>
+              <ion-col>
+                {{walker.durationMins}} Mins
+              </ion-col>
+            </ion-row>
+        
+            <ion-button
+              (click)="acceptWalkersRequest(walker.walkRequestId , walker.ownerEmail ,walker.walkerEmail , walker.lat , walker.lng , walker.price ,walker.numberPets, walker.durationMins)">
+              Accept</ion-button>
+            <ion-button>Decline </ion-button>
+            <ion-button (click)="viewOnMap(walker)">View On Map </ion-button>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+
+</ion-content>

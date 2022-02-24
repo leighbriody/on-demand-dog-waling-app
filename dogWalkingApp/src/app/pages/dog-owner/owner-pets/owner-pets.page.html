@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+
+      <ion-back-button defaultHref="/"></ion-back-button>
+
+    </ion-buttons>
+    <ion-title style="width: 100%; position: absolute; left: 0; color: var(--ion-color-primary);">
+      Walkies
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+
+
+  <!--LIST OF PETS-->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let pet of ownersPets">
+          <ion-img src="../../../../assets/img/owner-pets/muller.jpg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{pet.name}} </ion-card-title>
+            <ion-card-subtitle>{{pet.breed}} </ion-card-subtitle>
+            <ion-card-subtitle>{{pet.age}} years , {{pet.height}}</ion-card-subtitle>
+            <ion-card-subtitle>Number of walks 5</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{pet.description}}
+          </ion-card-content>
+          <ion-card-content>
+            <ion-row>
+              <ion-col>
+                <label class="view-btn">View</label>
+              </ion-col>
+              <ion-col>
+                <label class="edit-btn">Edit</label>
+              </ion-col>
+              <ion-col>
+                <label class="remove-btn">Remove</label>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <!--We also want to give them the option to add a module -->
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/','add-pet']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+
+
+</ion-content>
+
+
+<!--DOG OWNER TABS-->
+<ion-toolbar>
+  <ion-tabs>
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="goToPictures()">
+        <img src="../../../../assets/img/owner-home/lead.png">
+      </ion-fab-button>
+    </ion-fab>
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button tab="tab-encounters" class="home">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="tab-conversations" class="comments" [routerLink]="['/','owner-pets']">
+        <ion-icon name="paw"></ion-icon>
+        <ion-badge></ion-badge>
+      </ion-tab-button>
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+      <ion-tab-button tab="tab-notifications" class="notifs">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge>1</ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-profile">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

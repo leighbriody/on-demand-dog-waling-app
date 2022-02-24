@@ -1,0 +1,53 @@
+ion-tabs{
+
+	ion-tab-bar {
+		
+		--border: 0;
+		
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+			--background: var(--ion-color-light);
+		}
+	
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {    
+			width: 72px;
+			margin-top: 19px;
+			path{
+				fill:  var(--ion-color-light);
+			}		
+		}
+	}
+}
+
+ion-row {
+    text-align: center;
+    
+    }
+
+    ion-col {
+        margin: 0 auto;
+    }
+
+    ion-checkbox {
+        margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+    }
+
+
